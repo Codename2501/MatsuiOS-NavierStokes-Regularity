@@ -1,0 +1,17 @@
+title: "MatsuiOS: A Generative Framework for Navier–Stokes"
+description: "OS-atm → OS-dir → OS Geometry → OSG2ADV → Main Theorem"
+theme: minima
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# GitHub Pages 用
+exclude:
+  - Gemfile
+  - Gemfile.lock
