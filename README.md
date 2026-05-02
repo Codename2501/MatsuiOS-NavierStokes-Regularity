@@ -10,19 +10,12 @@ A filtered vorticity equation (OSG2ADV) fully equivalent to Navier–Stokes
 A three-stage inequality system that confines blow-up
 A main theorem proving no finite-time blow-up for smooth initial data
 
-.
-├── README.md
-├── chapter1_generative_principle.md
-├── chapter2_os_geometry.md
-├── chapter3_osg2adv.md
-├── chapter4_key_lemmas.md
-└── chapter5_main_theorem.md
 Chapters
-The Generative Principle: From OS-atm to MatsuiOS
-OS Geometry: Scale, Geometry, and Critical Structure
-OSG2ADV: A Filtered Vorticity Equation Fully Equivalent to NS
-Key Lemmas: Three-Stage Inequalities Confining Blow-up
-Main Theorem: No Finite-Time Blow-up for Navier–Stokes
+chapter1_generative_principle：The Generative Principle: From OS-atm to MatsuiOS
+chapter2_os_geometry：OS Geometry: Scale, Geometry, and Critical Structure
+chapter3_osg2adv：OSG2ADV: A Filtered Vorticity Equation Fully Equivalent to NS
+chapter4_key_lemmas：Key Lemmas: Three-Stage Inequalities Confining Blow-up
+chapter5_main_theorem：Main Theorem: No Finite-Time Blow-up for Navier–Stokes
 
 Author
 Katsumasa Matsui  
