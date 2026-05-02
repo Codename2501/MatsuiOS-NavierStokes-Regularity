@@ -1,89 +1,67 @@
+---
+layout: default
+title: "Chapter 2: OS Geometry"
+---
+
 # Chapter 2. OS Geometry: Scale, Geometry, and Critical Structure
 
 ## 2.1 Definition of the Scale Hierarchy
 
-OS Geometry generates the **scale structure** \( \ell \)  
-after OS-atm → OS-dir produces directional structure.
+OS Geometry generates the **scale structure** $\ell$ after the transition `OS-atm → OS-dir` produces directional structure.
 
-The scale hierarchy begins at the minimal scale \( \ell \):
+The scale hierarchy begins at the minimal scale $\ell$:
 
-$$
-\ell,\; 2\ell,\; 4\ell,\; 8\ell,\;\dots
-$$
+$$\ell,\; 2\ell,\; 4\ell,\; 8\ell,\;\dots$$
 
-This hierarchy functions as a **geometric coordinate system**  
-for classifying localization, concentration, and diffusion of vorticity.
+This hierarchy functions as a **geometric coordinate system** for classifying localization, concentration, and diffusion of vorticity. It allows fluid structure to be interpreted as:
 
-It allows fluid structure to be interpreted as:
-
-**“At which scale is the danger located?”**
+> **“At which scale is the danger located?”**
 
 ---
 
-## 2.2 Local Concentration \( M(t,\ell) \)
+## 2.2 Local Concentration $M(t,\ell)$
 
-Defined by:
+Defined by the supremum of the local $L^2$ norm of vorticity:
 
-$$
-M(t,\ell)
-=
-\sup_{x\in\mathbb{R}^3}
-\int_{B(x,\ell)} |\omega(t,y)|^2\,dy.
-$$
+$$M(t,\ell) = \sup_{x\in\mathbb{R}^3} \int_{B(x,\ell)} |\omega(t,y)|^2\,dy$$
 
 ### Interpretation
+*   **Small $\ell$ + Large $M$:** Sharp concentration (High danger).
+*   **Large $\ell$ + Large $M$:** Broad concentration (Relative stability).
+*   **Blow-up condition:** Any blow-up must cause $M$ to diverge at some scale.
 
-- small \( \ell \) + large \( M \) → sharp concentration  
-- large \( \ell \) + large \( M \) → broad concentration  
-- any blow-up must cause \( M \) to diverge at some scale  
-
-Thus **\( M \) is the first danger indicator**.
+Thus, **$M$ is the first danger indicator.**
 
 ---
 
-## 2.3 Scale-wise Enstrophy \( E(t,\lambda) \)
+## 2.3 Scale-wise Enstrophy $E(t,\lambda)$
 
 Defined by:
 
-$$
-E(t,\lambda)
-=
-\lambda^2
-\int_{\mathbb{R}^3}
-|\omega_\lambda(t,x)|^2\,dx.
-$$
+$$E(t,\lambda) = \lambda^2 \int_{\mathbb{R}^3} |\omega_\lambda(t,x)|^2\,dx$$
 
 ### Role
+*   Measures energy distribution across scales.
+*   **Small-scale energy growth** signals potential instability.
+*   **Large-scale energy** provides global stabilization.
+*   Total integral relates directly to the $L^2$ norm.
 
-- measures energy distribution across scales  
-- small-scale energy growth signals danger  
-- large-scale energy stabilizes  
-- total integral equals the \( L^2 \) norm  
-
-Thus **\( E \) quantifies the geometry of scales**.
+Thus, **$E$ quantifies the geometry of scales.**
 
 ---
 
-## 2.4 Generation of the Critical Scale \( \ell_c(t) \)
+## 2.4 Generation of the Critical Scale $\ell_c(t)$
 
 The core of OS Geometry is the existence of a **critical scale**:
 
-$$
-\ell_c(t)
-=
-\inf\{\ell > 0 : M(t,\ell) \text{ exceeds a critical threshold}\}.
-$$
+$$\ell_c(t) = \inf\{\ell > 0 : M(t,\ell) \text{ exceeds a critical threshold}\}$$
 
 ### Meaning
+*   **Below $\ell_c(t)$:** Viscosity always suppresses concentration.
+*   **Above $\ell_c(t)$:** Nonlinearity may dominate.
+*   **Location:** Any blow-up must occur at a finite scale $\ell \approx \ell_c(t)$.
 
-- below \( \ell_c(t) \): viscosity always suppresses concentration  
-- above \( \ell_c(t) \): nonlinearity may dominate  
-- any blow-up must occur at a finite scale  
-  $$
-  \ell \approx \ell_c(t)
-  $$
-
-Thus OS Geometry **pinpoints the location of possible blow-up**.
+Thus, OS Geometry **pinpoints the location of possible blow-up.**
 
 ---
 
@@ -91,16 +69,11 @@ Thus OS Geometry **pinpoints the location of possible blow-up**.
 
 OS Geometry classifies blow-up using three OS quantities:
 
-### (1) \( M \) — local concentration  
-first sign of danger
+1.  **$M$ — Local Concentration:** The first sign of geometric danger.
+2.  **$E$ — Scale Energy:** Controls energy flow between hierarchies.
+3.  **$S$ — OSG2ADV BKM Quantity:** The final blow-up criterion (Beale-Kato-Majda type).
 
-### (2) \( E \) — scale energy  
-controls energy flow between scales
-
-### (3) \( S \) — OSG2ADV BKM quantity  
-final blow-up criterion
-
-Together, they **completely confine blow-up**.
+Together, they **completely confine blow-up.**
 
 ---
 
@@ -108,8 +81,6 @@ Together, they **completely confine blow-up**.
 
 The purpose of this chapter is:
 
-**To build the foundation for treating Navier–Stokes blow-up  
-as geometry of scales.**
+> **To build the foundation for treating Navier–Stokes blow-up as a geometry of scales.**
 
-OS Geometry provides the structural framework that makes  
-the analysis in Chapters 3–5 possible.
+OS Geometry provides the structural framework that makes the rigorous analysis in Chapters 3–5 possible.
