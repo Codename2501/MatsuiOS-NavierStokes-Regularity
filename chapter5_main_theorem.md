@@ -1,13 +1,18 @@
+---
+layout: default
+title: "Chapter 5: Main Theorem"
+---
+
 # Chapter 5. Main Theorem: No Finite-Time Blow-up for the Navier–Stokes Equations
 
 ## 5.1 Purpose of This Chapter
 
 In this chapter, we combine the structures established in the previous chapters:
 
-- the scale structure of OS Geometry  
-- the complete equivalence between OSG2ADV and the Navier–Stokes equations  
-- the three-stage inequalities involving \( M, E, S \)  
-- the non-collapse of the critical scale  
+*   the scale structure of OS Geometry
+*   the complete equivalence between OSG2ADV and the Navier–Stokes equations
+*   the three-stage inequalities involving $M, E, S$
+*   the non-collapse of the critical scale
 
 to prove the following **Main Theorem**.
 
@@ -15,20 +20,13 @@ to prove the following **Main Theorem**.
 
 ## Main Theorem
 
-For smooth initial data of the three-dimensional Navier–Stokes equations,  
-**finite-time blow-up does not occur**.
+For smooth initial data of the three-dimensional Navier–Stokes equations, **finite-time blow-up does not occur**.
 
-More precisely, for any \( T > 0 \):
+More precisely, for any $T > 0$:
 
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty,$$
 
-
-\[
-\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty,
-\]
-
-
-
-and therefore the solution can be smoothly extended up to time \( t = T \).
+and therefore the solution can be smoothly extended up to time $t = T$.
 
 ---
 
@@ -36,26 +34,13 @@ and therefore the solution can be smoothly extended up to time \( t = T \).
 
 From Lemma D in Chapter 4, we have:
 
-
-
-\[
-\ell_c(t) \not\to 0 \qquad (t \to T).
-\]
-
-
+$$\ell_c(t) \not\to 0 \qquad (t \to T).$$
 
 ### Interpretation
 
-- If blow-up were to occur, it must occur at a finite scale  
-  
-
-\[
-  \ell \approx \ell_c(t).
-  \]
-
-
-- However, viscosity prevents \( \ell_c(t) \) from collapsing to zero.  
-- Therefore **blow-up at arbitrarily small scales is impossible**.
+*   If blow-up were to occur, it must occur at a finite scale $\ell \approx \ell_c(t)$.
+*   However, viscosity prevents $\ell_c(t)$ from collapsing to zero.
+*   Therefore **blow-up at arbitrarily small scales is impossible**.
 
 This is the OS Geometry mechanism that **confines the possible location of blow-up**.
 
@@ -63,49 +48,26 @@ This is the OS Geometry mechanism that **confines the possible location of blow-
 
 ## 5.3 Establishment of the BKM Condition
 
-From Theorem 3 in Chapter 4 (OSG2ADV–BKM ⇔ classical BKM),  
-if
+From Theorem 3 in Chapter 4 (OSG2ADV–BKM $\Leftrightarrow$ classical BKM), if
 
-
-
-\[
-S(T)
-=
-\sup_{x,\ell}
-\int_0^T |\omega_\ell(t,x)|\,dt
-< \infty,
-\]
-
-
+$$S(T) = \sup_{x,\ell} \int_0^T |\omega_\ell(t,x)|\,dt < \infty,$$
 
 then the classical BKM condition
 
-
-
-\[
-\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty
-\]
-
-
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
 
 also holds.
 
 From Lemmas A–D and Theorem 2, we know:
 
-- \( M \) does not blow up  
-- \( E \) is controlled by the \( L^2 \) norm  
-- the stretching term is completely controlled  
-- the critical scale does not collapse  
+*   $M$ does not blow up
+*   $E$ is controlled by the $L^2$ norm
+*   the stretching term is completely controlled
+*   the critical scale does not collapse
 
 Thus:
 
-
-
-\[
-S(T) < \infty,
-\]
-
-
+$$S(T) < \infty,$$
 
 and therefore the **classical BKM condition holds**.
 
@@ -115,18 +77,9 @@ and therefore the **classical BKM condition holds**.
 
 Since the BKM condition holds:
 
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
 
-
-\[
-\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty
-\]
-
-
-
-is guaranteed.
-
-This is the standard regularity criterion for the Navier–Stokes equations.  
-Therefore, the solution extends smoothly up to time \( t = T \).
+is guaranteed. This is the standard regularity criterion for the Navier–Stokes equations. Therefore, the solution extends smoothly up to time $t = T$.
 
 Hence:
 
@@ -138,30 +91,21 @@ Hence:
 
 We now summarize the generative structure of the entire theory:
 
-1. **OS-atm (direction-zero)**  
-   → the pre-generative zero where neither direction nor scale exists.
-
-2. **OS-dir (generation of direction)**  
-   → emergence of directional labels.
-
-3. **OS Geometry (scale and geometry)**  
-   → generation of the three-stage quantities \( M, E, S \)  
-      and the critical scale \( \ell_c(t) \).
-
-4. **OSG2ADV (fully equivalent to NS)**  
-   → reconstruction of Navier–Stokes in OS form.
-
-5. **Three-stage inequalities (M, E, S)**  
-   → confinement of the location and mechanism of blow-up.
-
-6. **Stability of the critical scale**  
-   → elimination of the possibility of blow-up.
-
-7. **Establishment of the BKM condition**  
-   → final confirmation of regularity.
+1.  **OS-atm (direction-zero)**
+    → the pre-generative zero where neither direction nor scale exists.
+2.  **OS-dir (generation of direction)**
+    → emergence of directional labels.
+3.  **OS Geometry (scale and geometry)**
+    → generation of the three-stage quantities $M, E, S$ and the critical scale $\ell_c(t)$.
+4.  **OSG2ADV (fully equivalent to NS)**
+    → reconstruction of Navier–Stokes in OS form.
+5.  **Three-stage inequalities (M, E, S)**
+    → confinement of the location and mechanism of blow-up.
+6.  **Stability of the critical scale**
+    → elimination of the possibility of blow-up.
+7.  **Establishment of the BKM condition**
+    → final confirmation of regularity.
 
 ---
 
-This generative flow forms a **complete structure**  
-that begins with OS-atm and culminates in  
-the regularity of the Navier–Stokes equations.
+This generative flow forms a **complete structure** that begins with OS-atm and culminates in the regularity of the Navier–Stokes equations.
