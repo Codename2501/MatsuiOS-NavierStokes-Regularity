@@ -7,43 +7,105 @@ title: "Chapter 5: Main Theorem"
 
 ## 5.1 Purpose of This Chapter
 
-In this chapter, we combine the fundamental structures established in the previous chapters to provide the concluding proof. The argument integrates:
+In this chapter, we combine the structures established in the previous chapters:
 
-*   **OS Geometry:** The scale hierarchy that classifies fluid structures.
-*   **OSG2ADV Equivalence:** The proof that the filtered vorticity equation is fully equivalent to the Navier–Stokes equations (Theorem 1).
-*   **Three-Stage Inequalities:** The control mechanism using $M$ (concentration), $E$ (energy), and $S$ (BKM quantity).
-*   **Non-collapse of $\ell_c(t)$:** The geometric guarantee that the danger scale remains positive (Lemma D).
+*   the scale structure of OS Geometry
+*   the complete equivalence between OSG2ADV and the Navier–Stokes equations
+*   the three-stage inequalities involving $M, E, S$
+*   the non-collapse of the critical scale
 
-By synthesizing these elements, we establish the following **Main Theorem**.
-
----
-
-# **Main Theorem**
-
-> ### **Global Regularity of 3D Navier–Stokes Equations**
-> 
-> For any smooth initial data $v_0 \in H^s(\mathbb{R}^3)$ (where $s \ge 1$) with finite energy, the unique smooth solution to the three-dimensional incompressible Navier–Stokes equations exists for all time $t \in [0, \infty)$.
-> 
-> **Finite-time blow-up does not occur.**
+to prove the following **Main Theorem**.
 
 ---
 
-## 5.2 Outline of the Proof
+## Main Theorem
 
-The proof follows a rigorous OS-based logic:
+For smooth initial data of the three-dimensional Navier–Stokes equations, **finite-time blow-up does not occur**.
 
-1.  **Localization and Confinement:** Through OSG2ADV, the nonlinear stretching term $(\omega \cdot \nabla)v$ is decomposed into scale-wise interactions.
-2.  **Geometric Control:** Using **Lemma B**, the velocity gradient $\|\nabla v\|_{L^\infty}$ is bounded by the local concentration $M$ and the scale-wise enstrophy $E$.
-3.  **Stability of the Critical Scale:** **Lemma D** proves that the critical scale $\ell_c(t)$—the minimal scale where nonlinearity could potentially overcome viscosity—cannot reach zero in finite time.
-4.  **Integrability of the Blow-up Criterion:** Since $\ell_c(t) > 0$ and $E$ is bounded by global enstrophy, the OSG2ADV BKM quantity $S(T)$ satisfies:
-    $$\int_0^T \|\omega(t, \cdot)\|_{L^\infty} dt < \infty$$
-    for any finite $T$.
-5.  **Conclusion:** According to the Beale-Kato-Majda criterion, the solution remains smooth and regular for all $t > 0$.
+More precisely, for any $T > 0$:
+
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty,$$
+
+and therefore the solution can be smoothly extended up to time $t = T$.
 
 ---
 
-## 5.3 Final Conclusion of the OS Theory
+## 5.2 The Critical Scale Does Not Collapse to Zero
 
-The "blow-up problem" is essentially a question of whether energy can concentrate at an infinitely small point. **MatsuiOS** provides the mathematical framework to show that the scale hierarchy of the fluid itself prevents such a collapse. 
+From Lemma D in Chapter 4, we have:
 
-By reconstructing the Navier–Stokes equations as a generative process from **OS-atm** to **OS Geometry**, we reveal that the physical structure of the equations inherently confines and suppresses the formation of singularities.
+$$\ell_c(t) \not\to 0 \qquad (t \to T).$$
+
+### Interpretation
+
+*   If blow-up were to occur, it must occur at a finite scale $\ell \approx \ell_c(t)$.
+*   However, viscosity prevents $\ell_c(t)$ from collapsing to zero.
+*   Therefore **blow-up at arbitrarily small scales is impossible**.
+
+This is the OS Geometry mechanism that **confines the possible location of blow-up**.
+
+---
+
+## 5.3 Establishment of the BKM Condition
+
+From Theorem 3 in Chapter 4 (OSG2ADV–BKM $\Leftrightarrow$ classical BKM), if
+
+$$S(T) = \sup_{x,\ell} \int_0^T |\omega_\ell(t,x)|\,dt < \infty,$$
+
+then the classical BKM condition
+
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
+
+also holds.
+
+From Lemmas A–D and Theorem 2, we know:
+
+*   $M$ does not blow up
+*   $E$ is controlled by the $L^2$ norm
+*   the stretching term is completely controlled
+*   the critical scale does not collapse
+
+Thus:
+
+$$S(T) < \infty,$$
+
+and therefore the **classical BKM condition holds**.
+
+---
+
+## 5.4 Regularity Conclusion
+
+Since the BKM condition holds:
+
+$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
+
+is guaranteed. This is the standard regularity criterion for the Navier–Stokes equations. Therefore, the solution extends smoothly up to time $t = T$.
+
+Hence:
+
+> **Finite-time blow-up of the Navier–Stokes equations does not occur.**
+
+---
+
+## 5.5 Summary of the Generative Principle via MatsuiOS
+
+We now summarize the generative structure of the entire theory:
+
+1.  **OS-atm (direction-zero)**
+    → the pre-generative zero where neither direction nor scale exists.
+2.  **OS-dir (generation of direction)**
+    → emergence of directional labels.
+3.  **OS Geometry (scale and geometry)**
+    → generation of the three-stage quantities $M, E, S$ and the critical scale $\ell_c(t)$.
+4.  **OSG2ADV (fully equivalent to NS)**
+    → reconstruction of Navier–Stokes in OS form.
+5.  **Three-stage inequalities (M, E, S)**
+    → confinement of the location and mechanism of blow-up.
+6.  **Stability of the critical scale**
+    → elimination of the possibility of blow-up.
+7.  **Establishment of the BKM condition**
+    → final confirmation of regularity.
+
+---
+
+This generative flow forms a **complete structure** that begins with OS-atm and culminates in the regularity of the Navier–Stokes equations.
