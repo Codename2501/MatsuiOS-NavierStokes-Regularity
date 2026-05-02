@@ -8,7 +8,7 @@ title: "Chapter 1: The Generative Principle"
 ## 1.1 OS-atm: The Zero of Generation and the Zero of Direction
 
 **OS-atm** is the most fundamental concept in this theory.  
-Unlike the usual mathematical “0,” which represents the absence of quantity, OS-atm represents something entirely different:
+Unlike the usual mathematical "0," which represents the absence of quantity, OS-atm represents something entirely different:
 
 > **“A state in which direction does not yet exist.”**
 
@@ -33,6 +33,7 @@ OS-dir is defined as:
 *   $+0_k, -0_k$
 
 ### The Distinction
+
 | Concept | Definition |
 | :--- | :--- |
 | **OS-atm** | Zero without direction |
@@ -48,7 +49,7 @@ Once OS-dir appears, directional distinction becomes possible. Once direction ca
 
 The scale hierarchy emerges as:
 
-$$\ell, 2\ell, 4\ell, 8\ell, \dots$$
+$$ \ell, 2\ell, 4\ell, 8\ell, \dots $$
 
 Through this process, the quantities used later in OS Geometry arise naturally:
 *   **Local concentration:** $M(t, \ell)$
@@ -68,7 +69,7 @@ Navier–Stokes and other PDEs are decomposed into:
 ### (2) Reconstruct physical equations from the generative principle
 The generative flow is:
 
-$$\text{OS-atm} \longrightarrow \text{OS-dir} \longrightarrow \text{OS Geometry} \longrightarrow \text{OSG2ADV}$$
+$$ \text{OS-atm} \longrightarrow \text{OS-dir} \longrightarrow \text{OS Geometry} \longrightarrow \text{OSG2ADV} $$
 
 This means physical equations are **generated**, not merely written.
 
