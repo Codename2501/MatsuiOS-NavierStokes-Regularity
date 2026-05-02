@@ -3,7 +3,7 @@ layout: default
 title: "Chapter 4: Key Lemmas"
 ---
 
-# Chapter 1. Key Lemmas: Three-Stage Inequalities That Confine the Location of Blow-up
+# Chapter 4. Key Lemmas: Three-Stage Inequalities That Confine the Location of Blow-up
 
 ## 4.1 Purpose of This Chapter
 
@@ -26,7 +26,7 @@ We establish the following four fundamental lemmas that link these quantities:
 > ### **Lemma A**
 > For any $x \in \mathbb{R}^3$ and $\ell > 0$:
 > 
-> $$|\omega_\ell(t,x)|^2 \le C \cdot \ell^{-3} M(t,\ell)$$
+> $$ |\omega_\ell(t,x)|^2 \le C \cdot \ell^{-3} M(t,\ell) $$
 
 **Significance:**
 This means that as long as the concentration $M$ is finite at scale $\ell$, the filtered vorticity $\omega_\ell$ cannot diverge.
@@ -40,7 +40,7 @@ This means that as long as the concentration $M$ is finite at scale $\ell$, the 
 > ### **Lemma B**
 > For any scale $\ell > 0$:
 > 
-> $$\|\nabla v_\ell\|_{L^\infty} \le C \left( \frac{M(t,\ell)}{\ell^3} \right)^{1/2} + \int_{\ell}^{\infty} \frac{E(t, \lambda)^{1/2}}{\lambda} \frac{d\lambda}{\lambda}$$
+> $$ \|\nabla v_\ell\|_{L^\infty} \le C \left( \frac{M(t,\ell)}{\ell^3} \right)^{1/2} + \int_{\ell}^{\infty} \frac{E(t, \lambda)^{1/2}}{\lambda} \frac{d\lambda}{\lambda} $$
 
 **Interpretation:**
 *   **The first term:** Represents the contribution from the **local scale $\ell$** (controlled by $M$).
@@ -55,7 +55,7 @@ This means that as long as the concentration $M$ is finite at scale $\ell$, the 
 > ### **Lemma C**
 > The scale-wise enstrophy $E(t,\lambda)$ is uniformly bounded by the global enstrophy (vorticity $L^2$ norm):
 > 
-> $$\int_0^\infty E(t, \lambda) \frac{d\lambda}{\lambda} = \|\omega(t, \cdot)\|_{L^2}^2$$
+> $$ \int_0^\infty E(t, \lambda) \frac{d\lambda}{\lambda} = \|\omega(t, \cdot)\|_{L^2}^2 $$
 
 **Significance:**
 This guarantees that the energy flow remains consistent with the global physical constraints of the fluid.
@@ -69,7 +69,7 @@ This guarantees that the energy flow remains consistent with the global physical
 > ### **Lemma D**
 > If the global enstrophy is bounded, then the critical scale $\ell_c(t)$ is bounded away from zero:
 > 
-> $$\ell_c(t) \ge \ell_{\min} > 0$$
+> $$ \ell_c(t) \ge \ell_{\min} > 0 $$
 
 **Conclusion:**
 Since blow-up requires concentration at an infinitely small scale ($\ell \to 0$), the fact that $\ell_c(t)$ stays positive means that the **Navier–Stokes equations are regular** (blow-up is confined and suppressed).
