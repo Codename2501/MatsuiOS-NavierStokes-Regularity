@@ -9,11 +9,11 @@ title: "Chapter 3: OSG2ADV"
 
 For a given scale $\ell$, the filtered vorticity is defined by:
 
-$$\omega_\ell(t,x) = (K_\ell * \omega)(t,x)$$
+$$ \omega_\ell(t,x) = (K_\ell * \omega)(t,x) $$
 
 where
 
-$$K_\ell(x) = \ell^{-3} K(x/\ell)$$
+$$ K_\ell(x) = \ell^{-3} K(x/\ell) $$
 
 is a smooth scale filter, and $\omega = \nabla \times v$ is the vorticity of the Navier–Stokes velocity field.
 
@@ -25,19 +25,19 @@ This filtering operation extracts the **local structure of vorticity at scale $\
 
 The vorticity formulation of the Navier–Stokes equations is:
 
-$$\partial_t \omega + (v\cdot\nabla)\omega = (\omega\cdot\nabla)v + \nu\Delta\omega$$
+$$ \partial_t \omega + (v\cdot\nabla)\omega = (\omega\cdot\nabla)v + \nu\Delta\omega $$
 
 Applying the filter $K_\ell$ yields:
 
-$$\partial_t \omega_\ell + (v\cdot\nabla)\omega_\ell = (\omega\cdot\nabla)v_\ell + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
+$$ \partial_t \omega_\ell + (v\cdot\nabla)\omega_\ell = (\omega\cdot\nabla)v_\ell + \nu\Delta\omega_\ell + R(v,\omega,\ell) $$
 
 where the commutator (exchange error) is:
 
-$$R(v,\omega,\ell) = K_\ell * \big[(v\cdot\nabla)\omega\big] - (v\cdot\nabla)(K_\ell * \omega)$$
+$$ R(v,\omega,\ell) = K_\ell * \big[(v\cdot\nabla)\omega\big] - (v\cdot\nabla)(K_\ell * \omega) $$
 
 Rewriting this equation in a form aligned with OS Geometry yields the **OSG2ADV (OS Geometry 2 – Advection Form)** equation:
 
-$$\partial_t \omega_\ell = A_\ell(\omega_\ell) + S_\ell(\omega_\ell) + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
+$$ \partial_t \omega_\ell = A_\ell(\omega_\ell) + S_\ell(\omega_\ell) + \nu\Delta\omega_\ell + R(v,\omega,\ell) $$
 
 **Components:**
 *   $A_\ell$: OS-type advection operator
@@ -56,7 +56,7 @@ This formulation is fully consistent with the three-stage structure $(M, E, S)$ 
 >
 > Conversely, if a family of functions $\{\omega_\ell\}_{\ell>0}$ satisfies OSG2ADV together with appropriate reconstruction conditions, then:
 >
-> $$\omega = \lim_{\ell\to 0} \omega_\ell$$
+> $$ \omega = \lim_{\ell\to 0} \omega_\ell $$
 >
 > is a solution of the Navier–Stokes vorticity equation.
 
@@ -71,7 +71,7 @@ This formulation is fully consistent with the three-stage structure $(M, E, S)$ 
 
 The stretching term $(\omega\cdot\nabla)v_\ell$ is the core mechanism behind potential blow-up. OS Geometry decomposes it according to scale structure:
 
-$$(\omega\cdot\nabla)v_\ell = \underbrace{\omega_\ell\cdot\nabla v_\ell}_{\text{same-scale}} + \underbrace{(\omega - \omega_\ell)\cdot\nabla v_\ell}_{\text{higher-scale}}$$
+$$ (\omega\cdot\nabla)v_\ell = \underbrace{\omega_\ell\cdot\nabla v_\ell}_{\text{same-scale}} + \underbrace{(\omega - \omega_\ell)\cdot\nabla v_\ell}_{\text{higher-scale}} $$
 
 This yields a **two-stage OS control**:
 *   **Same-scale term**: Controlled by $M$ (Local concentration).
@@ -85,7 +85,7 @@ This decomposition is the foundation of **Theorem 2 (complete control of stretch
 
 The commutator $R(v,\omega,\ell)$ encodes interactions between different scales. A key estimate is:
 
-$$\|R(v,\omega,\ell)\| \le C\,\ell\,\|\nabla v\|_{L^\infty}\,\|\omega\|_{L^\infty}$$
+$$ \|R(v,\omega,\ell)\| \le C\,\ell\,\|\nabla v\|_{L^\infty}\,\|\omega\|_{L^\infty} $$
 
 **Implications:**
 *   The smaller the scale $\ell$, the smaller the error.
