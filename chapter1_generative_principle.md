@@ -49,6 +49,20 @@ Once direction can be distinguished, the next entity generated is the **scale \(
 
 Scale generation proceeds as follows:
 
+$$
+\text{OS-atm}
+\;\longrightarrow\;
+\text{OS-dir}
+\;\longrightarrow\;
+\ell
+\;\longrightarrow\;
+2\ell
+\;\longrightarrow\;
+4\ell
+\;\longrightarrow\;
+8\ell
+\;\longrightarrow\;\cdots
+$$
 
 Through this process, the quantities used later in OS Geometry arise naturally:
 
@@ -80,6 +94,15 @@ Navier–Stokes and other PDEs are decomposed into:
 
 Through the generative flow:
 
+$$
+\text{OS-atm}
+\;\longrightarrow\;
+\text{OS-dir}
+\;\longrightarrow\;
+\text{OS Geometry}
+\;\longrightarrow\;
+\text{OSG2ADV}
+$$
 
 physical equations are **generated**, not merely written.
 
