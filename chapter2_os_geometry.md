@@ -7,13 +7,9 @@ after OS-atm → OS-dir produces directional structure.
 
 The scale hierarchy begins at the minimal scale \( \ell \):
 
-
-
-\[
+$$
 \ell,\; 2\ell,\; 4\ell,\; 8\ell,\;\dots
-\]
-
-
+$$
 
 This hierarchy functions as a **geometric coordinate system**  
 for classifying localization, concentration, and diffusion of vorticity.
@@ -28,16 +24,12 @@ It allows fluid structure to be interpreted as:
 
 Defined by:
 
-
-
-\[
+$$
 M(t,\ell)
 =
 \sup_{x\in\mathbb{R}^3}
 \int_{B(x,\ell)} |\omega(t,y)|^2\,dy.
-\]
-
-
+$$
 
 ### Interpretation
 
@@ -53,17 +45,13 @@ Thus **\( M \) is the first danger indicator**.
 
 Defined by:
 
-
-
-\[
+$$
 E(t,\lambda)
 =
 \lambda^2
 \int_{\mathbb{R}^3}
 |\omega_\lambda(t,x)|^2\,dx.
-\]
-
-
+$$
 
 ### Role
 
@@ -80,28 +68,20 @@ Thus **\( E \) quantifies the geometry of scales**.
 
 The core of OS Geometry is the existence of a **critical scale**:
 
-
-
-\[
+$$
 \ell_c(t)
 =
 \inf\{\ell > 0 : M(t,\ell) \text{ exceeds a critical threshold}\}.
-\]
-
-
+$$
 
 ### Meaning
 
 - below \( \ell_c(t) \): viscosity always suppresses concentration  
 - above \( \ell_c(t) \): nonlinearity may dominate  
 - any blow-up must occur at a finite scale  
-  
-
-\[
+  $$
   \ell \approx \ell_c(t)
-  \]
-
-
+  $$
 
 Thus OS Geometry **pinpoints the location of possible blow-up**.
 
