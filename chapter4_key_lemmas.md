@@ -1,235 +1,105 @@
-# Chapter 4. Key Lemmas: Three-Stage Inequalities That Confine the Location of Blow-up
+---
+layout: default
+title: "Chapter 3: OSG2ADV"
+---
 
-## 4.1 Purpose of This Chapter
+# Chapter 3. OSG2ADV: A Filtered Vorticity Equation Fully Equivalent to Navier–Stokes
 
-In this chapter, we use the three OS-Geometry quantities:
+## 3.1 Definition of the Filtered Vorticity $\omega_\ell$
 
-- \( M(t,\ell) \)  
-- \( E(t,\lambda) \)  
-- \( S(T) \)
+For a given scale $\ell$, the filtered vorticity is defined by:
 
-to completely confine the possibility of blow-up in the Navier–Stokes equations  
-within the scale structure.
+$$\omega_\ell(t,x) = (K_\ell * \omega)(t,x)$$
 
-We establish:
+where
 
-- **Lemma A:** Local concentration → filtered vorticity  
-- **Lemma B:** Local concentration + scale energy → gradient  
-- **Lemma C:** \(E\) controlled uniformly by the \(L^2\) norm  
-- **Lemma D:** Non-collapse of the critical scale  
-- **Theorem 2:** Complete control of the stretching term  
-- **Theorem 3:** OSG2ADV–BKM ⇔ classical BKM  
+$$K_\ell(x) = \ell^{-3} K(x/\ell)$$
 
-Once these are established,  
-**the mathematical possibility of blow-up disappears.**
+is a smooth scale filter, and $\omega = \nabla \times v$ is the vorticity of the Navier–Stokes velocity field.
+
+This filtering operation extracts the **local structure of vorticity at scale $\ell$**. Because it aligns naturally with the scale hierarchy of OS Geometry, the fundamental variable of OSG2ADV is $\omega_\ell$.
 
 ---
 
-## 4.2 Lemma A: Control of Filtered Vorticity by \( M \)
+## 3.2 Derivation of OSG2ADV
 
-### **Lemma A (local concentration → filtered vorticity)**
+The vorticity formulation of the Navier–Stokes equations is:
 
+$$\partial_t \omega + (v\cdot\nabla)\omega = (\omega\cdot\nabla)v + \nu\Delta\omega$$
 
+Applying the filter $K_\ell$ yields:
 
-\[
-|\omega_\ell(t,x)|
-\le
-C\,\ell^{-3/2}\,M(t,c\ell)^{1/2}.
-\]
+$$\partial_t \omega_\ell + (v\cdot\nabla)\omega_\ell = (\omega\cdot\nabla)v_\ell + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
 
+where the commutator (exchange error) is:
 
+$$R(v,\omega,\ell) = K_\ell * \big[(v\cdot\nabla)\omega\big] - (v\cdot\nabla)(K_\ell * \omega)$$
 
-### Interpretation
+Rewriting this equation in a form aligned with OS Geometry yields the **OSG2ADV (OS Geometry 2 – Advection Form)** equation:
 
-- The filtered vorticity at scale \( \ell \)  
-  is controlled solely by the local concentration \( M \) at the same scale.  
-- If blow-up occurs, \( M \) must diverge first.  
-- Thus **\( M \) is the primary danger indicator.**
+$$\partial_t \omega_\ell = A_\ell(\omega_\ell) + S_\ell(\omega_\ell) + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
+
+**Components:**
+*   $A_\ell$: OS-type advection operator
+*   $S_\ell$: OS-type stretching operator
+*   $R$: Scale-interaction (commutator) term
+
+This formulation is fully consistent with the three-stage structure $(M, E, S)$ of OS Geometry.
+
+---
+
+## 3.3 Complete Equivalence with the Navier–Stokes Vorticity Equation (Theorem 1)
+
+> ### **Theorem 1 (OSG2ADV = Filtered Navier–Stokes Vorticity Equation)**
+>
+> Let $v$ be a sufficiently smooth solution of the Navier–Stokes equations. Then the filtered vorticity $\omega_\ell = K_\ell * \omega$ satisfies the OSG2ADV evolution equation.
+>
+> Conversely, if a family of functions $\{\omega_\ell\}_{\ell>0}$ satisfies OSG2ADV together with appropriate reconstruction conditions, then:
+>
+> $$\omega = \lim_{\ell\to 0} \omega_\ell$$
+>
+> is a solution of the Navier–Stokes vorticity equation.
 
 ### Sketch of Proof
 
-- Write \( \omega_\ell = K_\ell * \omega \) and evaluate via spherical averaging.  
-- Apply Cauchy–Schwarz and the volume factor \( \ell^3 \).  
-- The estimate aligns naturally with the scale structure of OS Geometry.
+1.  **NS → OSG2ADV**: Applying the filter $K_\ell$ to the NS vorticity equation. Linear terms commute with the filter, while nonlinear terms produce the commutator $R$.
+2.  **OSG2ADV → NS**: As $\ell \to 0$, we have $\omega_\ell \to \omega$, $v_\ell \to v$, and $R(v,\omega,\ell) \to 0$. Thus, OSG2ADV converges to the NS vorticity equation.
 
 ---
 
-## 4.3 Lemma B: Control of the Gradient by \( M \) and \( E \)
+## 3.4 OS Decomposition of the Stretching Term
 
-### **Lemma B (gradient control by \( M \) and \( E \))**
+The stretching term $(\omega\cdot\nabla)v_\ell$ is the core mechanism behind potential blow-up. OS Geometry decomposes it according to scale structure:
 
+$$(\omega\cdot\nabla)v_\ell = \underbrace{\omega_\ell\cdot\nabla v_\ell}_{\text{same-scale}} + \underbrace{(\omega - \omega_\ell)\cdot\nabla v_\ell}_{\text{higher-scale}}$$
 
+This yields a **two-stage OS control**:
+*   **Same-scale term**: Controlled by $M$ (Local concentration).
+*   **Higher-scale term**: Controlled by $E$ (Scale energy).
 
-\[
-\|\nabla v_\ell(t)\|_{L^\infty}
-\le
-C\left(
-\ell^{-3/2} M(t,c\ell)^{1/2}
-+
-\int_0^\infty
-\min\left\{
-\frac{\lambda}{\ell^2},
-\frac{1}{\lambda}
-\right\}
-E(t,\lambda)^{1/2}
-\,\frac{d\lambda}{\lambda}
-\right).
-\]
-
-
-
-### Interpretation
-
-The gradient (the source of stretching) is controlled in two OS stages:
-
-- **small scales:** controlled by \( M \)  
-- **medium/large scales:** controlled by \( E \)
-
-Thus **all blow-up-driving mechanisms are controlled by OS quantities.**
-
-### Sketch of Proof
-
-- Use the Biot–Savart law decomposed by scale.  
-- Apply Calderón–Zygmund estimates.  
-- Use the OS scale hierarchy to separate contributions.
+This decomposition is the foundation of **Theorem 2 (complete control of stretching)** in Chapter 4.
 
 ---
 
-## 4.4 Lemma C: Uniform Control of \( E \) by the \( L^2 \) Norm
+## 3.5 Structure of Scale Interactions
 
-### **Lemma C (scale energy is \(L^2\)-controlled)**
+The commutator $R(v,\omega,\ell)$ encodes interactions between different scales. A key estimate is:
 
+$$\|R(v,\omega,\ell)\| \le C\,\ell\,\|\nabla v\|_{L^\infty}\,\|\omega\|_{L^\infty}$$
 
+**Implications:**
+*   The smaller the scale $\ell$, the smaller the error.
+*   $R \to 0$ as $\ell \to 0$.
+*   OSG2ADV and NS coincide exactly in the limit.
 
-\[
-\int_0^\infty
-E(t,\lambda)\,\frac{d\lambda}{\lambda}
-=
-\|\omega(t)\|_{L^2}^2.
-\]
-
-
-
-### Interpretation
-
-- \( E \) represents the enstrophy distribution across scales.  
-- Its total mass is always equal to the \( L^2 \) norm.  
-- Therefore **\( E \) cannot blow up.**
-
-### Conclusion
-
-Since \( E \) is bounded:
-
-- the second term in Lemma B is always finite  
-- gradient blow-up depends only on \( M \)  
-- eliminating blow-up of \( M \) eliminates all blow-up  
+This supports the claim that **OSG2ADV is simply another representation of NS**.
 
 ---
 
-## 4.5 Lemma D: Non-collapse of the Critical Scale \( \ell_c(t) \)
+## 3.6 Purpose of This Chapter
 
-### **Lemma D (critical scale cannot collapse)**
+The purpose of this chapter is:
 
+> **To establish, as a theorem, that OSG2ADV is fully equivalent to the Navier–Stokes vorticity equation.**
 
-
-\[
-\ell_c(t) \not\to 0 \qquad (t \to T).
-\]
-
-
-
-### Interpretation
-
-- At very small scales, viscosity always suppresses concentration.  
-- Thus blow-up **cannot** occur at arbitrarily small scales.  
-- If blow-up occurs, it must be at a finite scale  
-  
-
-\[
-  \ell \approx \ell_c(t).
-  \]
-
-
-
-### Conclusion
-
-The possible location of blow-up is  
-**completely confined to a finite scale region.**
-
----
-
-## 4.6 Theorem 2: Complete Control of the Stretching Term
-
-### **Theorem 2 (stretching is fully controlled)**
-
-From Lemmas A–D, the stretching term
-
-
-
-\[
-\|(\omega\cdot\nabla)v_\ell\|_{L^\infty}
-\]
-
-
-
-is completely controlled by the finiteness of \( M \) and \( E \).
-
-In particular:
-
-- \( M \) does not blow up  
-- \( E \) is controlled by the \( L^2 \) norm  
-
-Therefore:
-
-**the stretching term cannot cause blow-up.**
-
----
-
-## 4.7 Theorem 3: OSG2ADV–BKM ⇔ Classical BKM
-
-### **Theorem 3 (equivalence of BKM conditions)**
-
-The following are equivalent:
-
-
-
-\[
-S(T)
-=
-\sup_{x,\ell}
-\int_0^T |\omega_\ell(t,x)|\,dt
-< \infty,
-\]
-
-
-
-and
-
-
-
-\[
-\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty.
-\]
-
-
-
-### Interpretation
-
-- If blow-up is prevented on the OSG2ADV side,  
-  then classical Navier–Stokes blow-up is also prevented.  
-- The OS three-stage structure is **fully consistent** with classical BKM.
-
----
-
-## 4.8 Conclusion of This Chapter
-
-The lemmas and theorems in this chapter show that the three OS quantities:
-
-- \( M \) (local concentration)  
-- \( E \) (scale energy)  
-- \( S \) (time-integrated filtered vorticity)  
-
-**completely confine the possibility of blow-up**  
-in the Navier–Stokes equations.
-
-This directly leads to the **Main Regularity Theorem** in the next chapter.
+This equivalence allows the scale structure of OS Geometry to be applied directly to the blow-up analysis of Navier–Stokes.
