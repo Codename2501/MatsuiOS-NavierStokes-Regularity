@@ -11,7 +11,7 @@ OS Geometry generates the **scale structure** $\ell$ after the transition `OS-at
 
 The scale hierarchy begins at the minimal scale $\ell$:
 
-$$\ell,\; 2\ell,\; 4\ell,\; 8\ell,\;\dots$$
+$$ \ell, 2\ell, 4\ell, 8\ell, \dots $$
 
 This hierarchy functions as a **geometric coordinate system** for classifying localization, concentration, and diffusion of vorticity. It allows fluid structure to be interpreted as:
 
@@ -23,7 +23,7 @@ This hierarchy functions as a **geometric coordinate system** for classifying lo
 
 Defined by the supremum of the local $L^2$ norm of vorticity:
 
-$$M(t,\ell) = \sup_{x\in\mathbb{R}^3} \int_{B(x,\ell)} |\omega(t,y)|^2\,dy$$
+$$ M(t,\ell) = \sup_{x\in\mathbb{R}^3} \int_{B(x,\ell)} |\omega(t,y)|^2\,dy $$
 
 ### Interpretation
 *   **Small $\ell$ + Large $M$:** Sharp concentration (High danger).
@@ -38,7 +38,7 @@ Thus, **$M$ is the first danger indicator.**
 
 Defined by:
 
-$$E(t,\lambda) = \lambda^2 \int_{\mathbb{R}^3} |\omega_\lambda(t,x)|^2\,dx$$
+$$ E(t,\lambda) = \lambda^2 \int_{\mathbb{R}^3} |\omega_\lambda(t,x)|^2\,dx $$
 
 ### Role
 *   Measures energy distribution across scales.
@@ -54,7 +54,7 @@ Thus, **$E$ quantifies the geometry of scales.**
 
 The core of OS Geometry is the existence of a **critical scale**:
 
-$$\ell_c(t) = \inf\{\ell > 0 : M(t,\ell) \text{ exceeds a critical threshold}\}$$
+$$ \ell_c(t) = \inf\{\ell > 0 : M(t,\ell) \text{ exceeds a critical threshold}\} $$
 
 ### Meaning
 *   **Below $\ell_c(t)$:** Viscosity always suppresses concentration.
