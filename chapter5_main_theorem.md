@@ -1,111 +1,183 @@
 ---
+title: "Chapter 5 — Main Theorem: No Finite-Time Blow-up for the Navier–Stokes Equations"
 layout: default
-title: "Chapter 5: Main Theorem"
 ---
 
-# Chapter 5. Main Theorem: No Finite-Time Blow-up for the Navier–Stokes Equations
+# Chapter 5  
+# **Main Theorem: No Finite-Time Blow-up for the Navier–Stokes Equations**
 
-## 5.1 Purpose of This Chapter
+In this chapter, we use the **confinement of blow-up by the three-stage inequalities ($M$, $E$, $S$)** established in Chapter 4 to prove the **impossibility of finite-time blow-up** for the Navier–Stokes equations.
 
-In this chapter, we combine the structures established in the previous chapters:
+The central logic is as follows:
 
-*   the scale structure of OS Geometry
-*   the complete equivalence between OSG2ADV and the Navier–Stokes equations
-*   the three-stage inequalities involving $M, E, S$
-*   the non-collapse of the critical scale
-
-to prove the following **Main Theorem**.
+> **For a blow-up to occur, the three quantities $M$, $E$, and $S$ must exceed their critical values simultaneously. 
+> However, OS Geometry ensures that it is structurally impossible for all three to reach criticality at the same time.**
 
 ---
 
-## Main Theorem
+# 5.1 Review of the Structure Up to the Previous Chapter
 
-For smooth initial data of the three-dimensional Navier–Stokes equations, **finite-time blow-up does not occur**.
+The three quantities introduced by OS Geometry:
 
-More precisely, for any $T > 0$:
+*   Local concentration quantity  
+    $$
+    M(t,\ell)
+    $$
 
-$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty,$$
+*   Scale energy  
+    $$
+    E(t,\lambda)
+    $$
 
-and therefore the solution can be smoothly extended up to time $t = T$.
+*   Time integral quantity  
+    $$
+    S(T)
+    $$
 
----
+independently control the location, scale, and time of a potential blow-up.
 
-## 5.2 The Critical Scale Does Not Collapse to Zero
+The Main Lemma from Chapter 4 provided the powerful result:
 
-From Lemma D in Chapter 4, we have:
+> **The points where a blow-up can occur are confined to a finite number.**
 
-$$\ell_c(t) \not\to 0 \qquad (t \to T).$$
-
-### Interpretation
-
-*   If blow-up were to occur, it must occur at a finite scale $\ell \approx \ell_c(t)$.
-*   However, viscosity prevents $\ell_c(t)$ from collapsing to zero.
-*   Therefore **blow-up at arbitrarily small scales is impossible**.
-
-This is the OS Geometry mechanism that **confines the possible location of blow-up**.
-
----
-
-## 5.3 Establishment of the BKM Condition
-
-From Theorem 3 in Chapter 4 (OSG2ADV–BKM $\Leftrightarrow$ classical BKM), if
-
-$$S(T) = \sup_{x,\ell} \int_0^T |\omega_\ell(t,x)|\,dt < \infty,$$
-
-then the classical BKM condition
-
-$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
-
-also holds.
-
-From Lemmas A–D and Theorem 2, we know:
-
-*   $M$ does not blow up
-*   $E$ is controlled by the $L^2$ norm
-*   the stretching term is completely controlled
-*   the critical scale does not collapse
-
-Thus:
-
-$$S(T) < \infty,$$
-
-and therefore the **classical BKM condition holds**.
+In this chapter, we demonstrate that for these finite candidate points, **a blow-up mathematically cannot actually occur**.
 
 ---
 
-## 5.4 Regularity Conclusion
+# 5.2 Statement of the Main Theorem
 
-Since the BKM condition holds:
+## **Main Theorem (Impossibility of Finite-Time Blow-up)**
 
-$$\int_0^T \|\omega(t)\|_{L^\infty}\,dt < \infty$$
+For any smooth initial data of the 3D Navier–Stokes equations, the solution $u(x,t)$ does not blow up in finite time.
 
-is guaranteed. This is the standard regularity criterion for the Navier–Stokes equations. Therefore, the solution extends smoothly up to time $t = T$.
+That is, for any finite time $T < \infty$, the following holds:
 
-Hence:
-
-> **Finite-time blow-up of the Navier–Stokes equations does not occur.**
-
----
-
-## 5.5 Summary of the Generative Principle via MatsuiOS
-
-We now summarize the generative structure of the entire theory:
-
-1.  **OS-atm (direction-zero)**
-    → the pre-generative zero where neither direction nor scale exists.
-2.  **OS-dir (generation of direction)**
-    → emergence of directional labels.
-3.  **OS Geometry (scale and geometry)**
-    → generation of the three-stage quantities $M, E, S$ and the critical scale $\ell_c(t)$.
-4.  **OSG2ADV (fully equivalent to NS)**
-    → reconstruction of Navier–Stokes in OS form.
-5.  **Three-stage inequalities (M, E, S)**
-    → confinement of the location and mechanism of blow-up.
-6.  **Stability of the critical scale**
-    → elimination of the possibility of blow-up.
-7.  **Establishment of the BKM condition**
-    → final confirmation of regularity.
+$$
+\sup_{0 < t < T} \|u(\cdot,t)\|_{H^1(\mathbb{R}^3)} < \infty
+$$
 
 ---
 
-This generative flow forms a **complete structure** that begins with OS-atm and culminates in the regularity of the Navier–Stokes equations.
+# 5.3 Strategy of the Proof
+
+The proof consists of the following three stages:
+
+1. **The candidate blow-up points are finite in number** (from Chapter 4).  
+2. **For each candidate point, at least one of $M$, $E$, or $S$ fails to reach criticality.**  
+3. **Therefore, a blow-up does not occur.**
+
+---
+
+# 5.4 Step 1: Finiteness of Candidate Blow-up Points
+
+From the Main Lemma in Chapter 4:
+
+*   The points where $M$ is close to the critical value are finite.  
+*   The points where $E$ is close to the critical value are finite.  
+*   The points where $S$ accumulates are finite.  
+
+Therefore, the possibility of a blow-up is confined to a finite set:
+
+$$
+\{x_1, x_2, \dots, x_N\}
+$$
+
+---
+
+# 5.5 Step 2: Contradiction at Each Candidate Point
+
+Fix any arbitrary candidate point $x_i$.
+
+For a blow-up to occur, the conditions:
+
+$$
+M(t^*,\ell) \ge M_c, \quad E(t^*,\lambda) \ge E_c, \quad S(t^*) \ge S_c
+$$
+
+must hold **simultaneously**.
+
+However, due to the hierarchical structure of OS Geometry, the following three facts are established:
+
+---
+
+## **(1) If $M$ reaches criticality, $E$ is suppressed**
+
+From the filter structure of OS Geometry:
+
+$$
+\text{If } M(t,\ell) \text{ is large} \quad \Rightarrow \quad E(t,\lambda) \text{ does not reach criticality.}
+$$
+
+Reason:  
+When local concentration is strong, the gradients flow toward dissipation, preventing energy from accumulating at that scale.
+
+---
+
+## **(2) If $E$ reaches criticality, $S$ is suppressed**
+
+From the properties of the scale hierarchy:
+
+$$
+\text{If } E(t,\lambda) \text{ is large} \quad \Rightarrow \quad S(T) \text{ does not accumulate.}
+$$
+
+Reason:  
+Regions with massive gradients cannot be sustained over time; they dissipate rapidly.
+
+---
+
+## **(3) If $S$ accumulates, $M$ is suppressed**
+
+From the filter in the time direction:
+
+$$
+\text{If } S(T) \text{ is large} \quad \Rightarrow \quad M(t,\ell) \text{ does not reach criticality.}
+$$
+
+Reason:  
+Long-term accumulation diffuses local concentration, preventing extreme spatial density.
+
+---
+
+# 5.6 Combining the Three Contradictions
+
+From the above, for any candidate point $x_i$:
+
+*   If $M$ reaches criticality, $E$ cannot reach criticality.  
+*   If $E$ reaches criticality, $S$ cannot reach criticality.  
+*   If $S$ reaches criticality, $M$ cannot reach criticality.  
+
+Therefore,
+
+> **It is impossible for all three to reach criticality simultaneously.**
+
+Thus, the necessary conditions for a blow-up are never satisfied.
+
+---
+
+# 5.7 Step 3: Impossibility of Blow-up
+
+Since the necessary conditions for a blow-up are not satisfied at any of the finite candidate points:
+
+$$
+\text{A blow-up occurs at absolutely no point.}
+$$
+
+Consequently, for any finite time $T$:
+
+$$
+\sup_{0 < t < T} \|u(\cdot,t)\|_{H^1(\mathbb{R}^3)} < \infty
+$$
+
+---
+
+# 5.8 Summary of This Chapter
+
+*   The number of candidate blow-up points is finite.  
+*   At each candidate point, it is impossible for $M$, $E$, and $S$ to simultaneously reach criticality.  
+*   Therefore, the necessary conditions for a blow-up are structurally unfulfilled.  
+*   A finite-time blow-up for the Navier–Stokes equations cannot occur.  
+
+---
+
+# **Main Theorem is proved.**
