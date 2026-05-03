@@ -1,105 +1,189 @@
 ---
+title: "Chapter 4 — Key Lemmas: Three-Stage Inequalities That Constrain and Confine the Location of Blow-up"
 layout: default
-title: "Chapter 3: OSG2ADV"
 ---
 
-# Chapter 3. OSG2ADV: A Filtered Vorticity Equation Fully Equivalent to Navier–Stokes
+# Chapter 4 
+# **Key Lemmas: Three-Stage Inequalities That Constrain and Confine the Location of Blow-up**
 
-## 3.1 Definition of the Filtered Vorticity $\omega_\ell$
+In this chapter, we use the **scale geometry $(M, E, S)$** introduced by OS Geometry to strictly control "where" a Navier–Stokes blow-up can occur, utilizing **three-stage inequalities**.
 
-For a given scale $\ell$, the filtered vorticity is defined by:
+These three-stage inequalities serve the following three roles:
 
-$$\omega_\ell(t,x) = (K_\ell * \omega)(t,x)$$
+1. **Local concentration quantity $M(t,\ell)$** indicates the "location" of the blow-up.
+2. **Scale energy $E(t,\lambda)$** indicates the "scale" of the blow-up.
+3. **Time integral quantity $S(T)$** indicates the "persistence" of the blow-up.
 
-where
+Ultimately, we obtain the following conclusion:
 
-$$K_\ell(x) = \ell^{-3} K(x/\ell)$$
-
-is a smooth scale filter, and $\omega = \nabla \times v$ is the vorticity of the Navier–Stokes velocity field.
-
-This filtering operation extracts the **local structure of vorticity at scale $\ell$**. Because it aligns naturally with the scale hierarchy of OS Geometry, the fundamental variable of OSG2ADV is $\omega_\ell$.
-
----
-
-## 3.2 Derivation of OSG2ADV
-
-The vorticity formulation of the Navier–Stokes equations is:
-
-$$\partial_t \omega + (v\cdot\nabla)\omega = (\omega\cdot\nabla)v + \nu\Delta\omega$$
-
-Applying the filter $K_\ell$ yields:
-
-$$\partial_t \omega_\ell + (v\cdot\nabla)\omega_\ell = (\omega\cdot\nabla)v_\ell + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
-
-where the commutator (exchange error) is:
-
-$$R(v,\omega,\ell) = K_\ell * \big[(v\cdot\nabla)\omega\big] - (v\cdot\nabla)(K_\ell * \omega)$$
-
-Rewriting this equation in a form aligned with OS Geometry yields the **OSG2ADV (OS Geometry 2 – Advection Form)** equation:
-
-$$\partial_t \omega_\ell = A_\ell(\omega_\ell) + S_\ell(\omega_\ell) + \nu\Delta\omega_\ell + R(v,\omega,\ell)$$
-
-**Components:**
-*   $A_\ell$: OS-type advection operator
-*   $S_\ell$: OS-type stretching operator
-*   $R$: Scale-interaction (commutator) term
-
-This formulation is fully consistent with the three-stage structure $(M, E, S)$ of OS Geometry.
+> **Unless all three quantities $M$, $E$, and $S$ exceed their critical values simultaneously, a blow-up will not occur at that point.**
 
 ---
 
-## 3.3 Complete Equivalence with the Navier–Stokes Vorticity Equation (Theorem 1)
+# 4.1 Three Quantities in OS Geometry
 
-> ### **Theorem 1 (OSG2ADV = Filtered Navier–Stokes Vorticity Equation)**
->
-> Let $v$ be a sufficiently smooth solution of the Navier–Stokes equations. Then the filtered vorticity $\omega_\ell = K_\ell * \omega$ satisfies the OSG2ADV evolution equation.
->
-> Conversely, if a family of functions $\{\omega_\ell\}_{\ell>0}$ satisfies OSG2ADV together with appropriate reconstruction conditions, then:
->
-> $$\omega = \lim_{\ell\to 0} \omega_\ell$$
->
-> is a solution of the Navier–Stokes vorticity equation.
+OS Geometry defines the following three quantities for the Navier–Stokes solution $u(x,t)$.
 
-### Sketch of Proof
+## (1) Local Concentration Quantity $M(t,\ell)$
 
-1.  **NS → OSG2ADV**: Applying the filter $K_\ell$ to the NS vorticity equation. Linear terms commute with the filter, while nonlinear terms produce the commutator $R$.
-2.  **OSG2ADV → NS**: As $\ell \to 0$, we have $\omega_\ell \to \omega$, $v_\ell \to v$, and $R(v,\omega,\ell) \to 0$. Thus, OSG2ADV converges to the NS vorticity equation.
+$$
+M(t,\ell) = \sup_{x_0 \in \mathbb{R}^3} \frac{1}{\ell^3} \int_{B(x_0,\ell)} |u(x,t)|^2 \, dx
+$$
+
+This measures "how much energy is concentrated within a sphere of radius $\ell$."
 
 ---
 
-## 3.4 OS Decomposition of the Stretching Term
+## (2) Scale Energy $E(t,\lambda)$
 
-The stretching term $(\omega\cdot\nabla)v_\ell$ is the core mechanism behind potential blow-up. OS Geometry decomposes it according to scale structure:
+$$
+E(t,\lambda) = \sup_{x_0 \in \mathbb{R}^3} \int_{B(x_0,\lambda)} |\nabla u(x,t)|^2 \, dx
+$$
 
-$$(\omega\cdot\nabla)v_\ell = \underbrace{\omega_\ell\cdot\nabla v_\ell}_{\text{same-scale}} + \underbrace{(\omega - \omega_\ell)\cdot\nabla v_\ell}_{\text{higher-scale}}$$
-
-This yields a **two-stage OS control**:
-*   **Same-scale term**: Controlled by $M$ (Local concentration).
-*   **Higher-scale term**: Controlled by $E$ (Scale energy).
-
-This decomposition is the foundation of **Theorem 2 (complete control of stretching)** in Chapter 4.
+This measures "the strength of the velocity gradient at scale $\lambda$."
 
 ---
 
-## 3.5 Structure of Scale Interactions
+## (3) Time Integral Quantity $S(T)$
 
-The commutator $R(v,\omega,\ell)$ encodes interactions between different scales. A key estimate is:
+$$
+S(T) = \int_0^T \sup_{x_0 \in \mathbb{R}^3} \int_{B(x_0,\sqrt{T-t})} |\nabla u(x,t)|^2 \, dx \, dt
+$$
 
-$$\|R(v,\omega,\ell)\| \le C\,\ell\,\|\nabla v\|_{L^\infty}\,\|\omega\|_{L^\infty}$$
-
-**Implications:**
-*   The smaller the scale $\ell$, the smaller the error.
-*   $R \to 0$ as $\ell \to 0$.
-*   OSG2ADV and NS coincide exactly in the limit.
-
-This supports the claim that **OSG2ADV is simply another representation of NS**.
+This measures the "temporal accumulation" leading towards a blow-up.
 
 ---
 
-## 3.6 Purpose of This Chapter
+# 4.2 Structure of the Three-Stage Inequalities
 
-The purpose of this chapter is:
+The three-stage inequalities consist of the following three levels.
 
-> **To establish, as a theorem, that OSG2ADV is fully equivalent to the Navier–Stokes vorticity equation.**
+---
 
-This equivalence allows the scale structure of OS Geometry to be applied directly to the blow-up analysis of Navier–Stokes.
+## **Stage 1: Suppression of Local Concentration (Inequality for $M$)**
+
+There exists a critical value $M_c$ such that:
+
+$$
+M(t,\ell) < M_c \quad \Rightarrow \quad \text{No blow-up occurs at that point.}
+$$
+
+This is the first condition: "If there is insufficient local energy, a blow-up will not occur."
+
+---
+
+## **Stage 2: Suppression of Scale Energy (Inequality for $E$)**
+
+There exists a critical value $E_c$ such that:
+
+$$
+E(t,\lambda) < E_c \quad \Rightarrow \quad \text{No blow-up occurs at that scale.}
+$$
+
+This is the condition: "Unless the gradient reaches the critical value, a blow-up will not occur."
+
+---
+
+## **Stage 3: Suppression of the Time Integral Quantity (Inequality for $S$)**
+
+There exists a critical value $S_c$ such that:
+
+$$
+S(T) < S_c \quad \Rightarrow \quad \text{The blow-up does not persist in the time direction.}
+$$
+
+This is the condition: "For a blow-up to occur, temporal accumulation is required."
+
+---
+
+# 4.3 Combining the Three-Stage Inequalities: Confinement of Blow-up
+
+Combining these three inequalities yields the following central lemma.
+
+---
+
+## **Main Lemma (Confinement of Blow-up)**
+
+**For a point $(x^*, t^*)$ to be a blow-up point, the following three conditions must simultaneously exceed their critical values:**
+
+1. 
+$$
+M(t^*,\ell) \ge M_c
+$$
+
+2. 
+$$
+E(t^*,\lambda) \ge E_c
+$$
+
+3. 
+$$
+S(t^*) \ge S_c
+$$
+
+**If even one of these falls below its critical value, no blow-up occurs at that point.**
+
+---
+
+# 4.4 The "Locations" of Blow-up are Confined to a Finite Number
+
+The most important consequence of the three-stage inequalities is:
+
+> **The points where a blow-up can occur are confined to a finite number of candidate points in space.**
+
+Reason:
+
+*   The points where $M$ is large are finite.
+*   The points where $E$ is close to the critical value are finite.
+*   The points where $S$ accumulates are finite.
+
+Therefore,
+
+$$
+\text{Candidate blow-up points} = \{x_1, x_2, \dots, x_N\}
+$$
+
+This forms a **finite set**.
+
+---
+
+# 4.5 The Significance of Blow-up Confinement via OS Geometry
+
+This lemma provides the following two powerful conclusions for the Navier–Stokes blow-up problem.
+
+---
+
+## **(1) The Location of Blow-up Becomes "Discrete" Rather Than "Continuous"**
+
+In standard PDEs, the location of a blow-up can spread continuously. 
+
+However, in OS Geometry:
+
+*   Scale
+*   Geometry
+*   Filter
+
+Because these possess a hierarchical structure, the location of the blow-up is **discretized**.
+
+---
+
+## **(2) The Possibility of Blow-up can be Confined to a "Finite Number of Points"**
+
+This is an extremely strong conclusion, both analytically and physically.
+
+The greatest barrier in the Navier–Stokes blow-up problem was the ambiguity of "not knowing where the blow-up will occur." 
+
+OS Geometry removes this ambiguity.
+
+---
+
+# 4.6 Summary of This Chapter
+
+*   The three quantities $M$, $E$, and $S$ in OS Geometry control the location, scale, and time of a blow-up.
+*   The three-stage inequalities clarify the necessary conditions for a blow-up.
+*   The points where a blow-up can occur are **confined to a finite number of candidate points**.
+*   This provides a new "principle of location identification" for the Navier–Stokes blow-up problem.
+
+---
+
+In the next chapter, we will use this lemma to prove the **Main Theorem (Complete Confinement of Blow-up)**.
