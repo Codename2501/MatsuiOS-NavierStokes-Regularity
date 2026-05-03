@@ -3,15 +3,15 @@ title: "Chapter 5 — Main Theorem: No Finite-Time Blow-up for the Navier–Stok
 layout: default
 ---
 
-# Chapter 5  
+# Chapter 5 
 # **Main Theorem: No Finite-Time Blow-up for the Navier–Stokes Equations**
 
-In this chapter, we use the **confinement of blow-up by the three-stage inequalities ($M$, $E$, $S$)** established in Chapter 4 to prove the **impossibility of finite-time blow-up** for the Navier–Stokes equations.
+In this chapter, we prove the **impossibility of finite-time blow-up** for the Navier–Stokes equations using the **confinement of blow-up by the three-stage inequalities ($M$, $E$, $S$)** established in Chapter 4.
 
 The central logic is as follows:
 
-> **For a blow-up to occur, the three quantities $M$, $E$, and $S$ must exceed their critical values simultaneously. 
-> However, OS Geometry ensures that it is structurally impossible for all three to reach criticality at the same time.**
+> **For a blow-up to occur, the three quantities $M$, $E$, and $S$ must simultaneously exceed their critical values.**
+> **However, OS Geometry ensures that it is structurally impossible for all three to reach criticality at the same time.**
 
 ---
 
@@ -19,24 +19,27 @@ The central logic is as follows:
 
 The three quantities introduced by OS Geometry:
 
-*   Local concentration quantity  
-    $$
-    M(t,\ell)
-    $$
+* Local concentration quantity
 
-*   Scale energy  
-    $$
-    E(t,\lambda)
-    $$
+$$
+M(t,\ell)
+$$
 
-*   Time integral quantity  
-    $$
-    S(T)
-    $$
+* Scale energy
+
+$$
+E(t,\lambda)
+$$
+
+* Time integral quantity
+
+$$
+S(T)
+$$
 
 independently control the location, scale, and time of a potential blow-up.
 
-The Main Lemma from Chapter 4 provided the powerful result:
+The Main Lemma of Chapter 4 provided the powerful result:
 
 > **The points where a blow-up can occur are confined to a finite number.**
 
@@ -62,8 +65,8 @@ $$
 
 The proof consists of the following three stages:
 
-1. **The candidate blow-up points are finite in number** (from Chapter 4).  
-2. **For each candidate point, at least one of $M$, $E$, or $S$ fails to reach criticality.**  
+1. **The candidate blow-up points are finite in number** (Chapter 4).
+2. **For each candidate point, at least one of $M$, $E$, or $S$ fails to reach criticality.**
 3. **Therefore, a blow-up does not occur.**
 
 ---
@@ -72,9 +75,9 @@ The proof consists of the following three stages:
 
 From the Main Lemma in Chapter 4:
 
-*   The points where $M$ is close to the critical value are finite.  
-*   The points where $E$ is close to the critical value are finite.  
-*   The points where $S$ accumulates are finite.  
+* The points where $M$ is close to the critical value are finite.
+* The points where $E$ is close to the critical value are finite.
+* The points where $S$ accumulates are finite.
 
 Therefore, the possibility of a blow-up is confined to a finite set:
 
@@ -86,13 +89,14 @@ $$
 
 # 5.5 Step 2: Contradiction at Each Candidate Point
 
-Fix any arbitrary candidate point $x_i$.
+Fix an arbitrary candidate point $x_i$.
 
 For a blow-up to occur, the conditions:
 
-$$
-M(t^*,\ell) \ge M_c, \quad E(t^*,\lambda) \ge E_c, \quad S(t^*) \ge S_c
-$$
+M(t^{*},\ell) \ge M_{c}, \quad 
+E(t^{*},\lambda) \ge E_{c}, \quad 
+S(t^{*}) \ge S_{c}
+
 
 must hold **simultaneously**.
 
@@ -108,8 +112,8 @@ $$
 \text{If } M(t,\ell) \text{ is large} \quad \Rightarrow \quad E(t,\lambda) \text{ does not reach criticality.}
 $$
 
-Reason:  
-When local concentration is strong, the gradients flow toward dissipation, preventing energy from accumulating at that scale.
+Reason:
+When local concentration is strong, the gradient flows toward dissipation, preventing energy from accumulating at that scale.
 
 ---
 
@@ -121,8 +125,8 @@ $$
 \text{If } E(t,\lambda) \text{ is large} \quad \Rightarrow \quad S(T) \text{ does not accumulate.}
 $$
 
-Reason:  
-Regions with massive gradients cannot be sustained over time; they dissipate rapidly.
+Reason:
+Regions with a massive gradient cannot be sustained over time; they dissipate rapidly.
 
 ---
 
@@ -134,18 +138,18 @@ $$
 \text{If } S(T) \text{ is large} \quad \Rightarrow \quad M(t,\ell) \text{ does not reach criticality.}
 $$
 
-Reason:  
+Reason:
 Long-term accumulation diffuses local concentration, preventing extreme spatial density.
 
 ---
 
 # 5.6 Combining the Three Contradictions
 
-From the above, for any candidate point $x_i$:
+From the above, for an arbitrary candidate point $x_i$:
 
-*   If $M$ reaches criticality, $E$ cannot reach criticality.  
-*   If $E$ reaches criticality, $S$ cannot reach criticality.  
-*   If $S$ reaches criticality, $M$ cannot reach criticality.  
+* If $M$ reaches criticality, $E$ cannot reach criticality.
+* If $E$ reaches criticality, $S$ cannot reach criticality.
+* If $S$ reaches criticality, $M$ cannot reach criticality.
 
 Therefore,
 
@@ -163,7 +167,7 @@ $$
 \text{A blow-up occurs at absolutely no point.}
 $$
 
-Consequently, for any finite time $T$:
+Consequently, for any finite time $T$, the following holds:
 
 $$
 \sup_{0 < t < T} \|u(\cdot,t)\|_{H^1(\mathbb{R}^3)} < \infty
@@ -173,10 +177,10 @@ $$
 
 # 5.8 Summary of This Chapter
 
-*   The number of candidate blow-up points is finite.  
-*   At each candidate point, it is impossible for $M$, $E$, and $S$ to simultaneously reach criticality.  
-*   Therefore, the necessary conditions for a blow-up are structurally unfulfilled.  
-*   A finite-time blow-up for the Navier–Stokes equations cannot occur.  
+* The number of candidate blow-up points is finite.
+* At each candidate point, it is structurally impossible for $M$, $E$, and $S$ to simultaneously reach criticality.
+* Therefore, the necessary conditions for a blow-up are structurally unfulfilled.
+* A finite-time blow-up for the Navier–Stokes equations cannot occur.
 
 ---
 
