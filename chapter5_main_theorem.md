@@ -93,10 +93,11 @@ Fix an arbitrary candidate point $x_i$.
 
 For a blow-up to occur, the conditions:
 
-M(t^{*},\ell) \ge M_{c}, \quad 
-E(t^{*},\lambda) \ge E_{c}, \quad 
-S(t^{*}) \ge S_{c}
-
+$$
+M(t^\ast,\ell) \ge M_c, \quad 
+E(t^\ast,\lambda) \ge E_c, \quad 
+S(t^\ast) \ge S_c
+$$
 
 must hold **simultaneously**.
 
